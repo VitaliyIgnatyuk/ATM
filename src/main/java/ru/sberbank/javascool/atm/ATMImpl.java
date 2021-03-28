@@ -38,6 +38,9 @@ public class ATMImpl implements ATM {
         Devices.getReaders().add(new CardReader(TypeOfService.Contactless, isWait, readEvent));
     }
 
+    /**
+     * Создание списка доступных операций (с приходом спринга и ServiceLocator будет удалено)
+     */
     private void createOperations() {
         operations.add(new OperationReadCard());
         operations.add(new OperationVerification());
@@ -45,6 +48,9 @@ public class ATMImpl implements ATM {
         operations.add(new OperationExit());
     }
 
+    /**
+     * Запуск работы с текущем уровнем операции
+     */
     private void run() {
         while (operationLevel != OperationLevel.End) {
             Optional<Operation> operation = selectOperation();
@@ -54,6 +60,10 @@ public class ATMImpl implements ATM {
         operationLevel = OperationLevel.Wait;
     }
 
+    /**
+     * Поиск всех возможных операций для текущего уровня
+     * @return Выбранная операция
+     */
     private Optional<Operation> selectOperation() {
         List<Operation> list = this.operations.stream().filter(o -> o.getActive(operationLevel)).collect(Collectors.toList());
         // Если нашли единственную подходящую операцию имеющую автозапуск, вернём её
