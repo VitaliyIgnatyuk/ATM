@@ -1,6 +1,5 @@
-package ru.sberbank.javascool.reader;
+package ru.sberbank.javascool.atm.devices.reader;
 
-import ru.sberbank.javascool.card.BankCard;
 import ru.sberbank.javascool.card.Card;
 
 /**

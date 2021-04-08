@@ -1,7 +1,7 @@
 package ru.sberbank.javascool.atm.operation;
 
 import lombok.Getter;
-import ru.sberbank.javascool.atm.Devices;
+import ru.sberbank.javascool.atm.devices.Devices;
 import ru.sberbank.javascool.card.BankCard;
 
 @Getter

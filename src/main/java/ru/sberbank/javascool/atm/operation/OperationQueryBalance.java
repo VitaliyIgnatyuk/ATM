@@ -1,7 +1,9 @@
 package ru.sberbank.javascool.atm.operation;
 
 import lombok.Getter;
-import ru.sberbank.javascool.atm.Devices;
+import ru.sberbank.javascool.atm.devices.Devices;
+
+import java.math.BigDecimal;
 
 /**
  * Операция запроса баланса
@@ -14,8 +16,8 @@ public class OperationQueryBalance implements Operation {
     @Override
     public OperationLevel run() {
         Devices.getDisplay().showMessage("Происходит запрос баланса, пожалуйста подождите...");
-        Double balance = Devices.getGateway().getBalance(Devices.getActiveReader().getCard().getSerialNumber());
-        Devices.getDisplay().showMessage(String.format("Ваш баланс: %f", balance));
+        BigDecimal balance = Devices.getGateway().getBalance(Devices.getActiveReader().getCard().getSerialNumber());
+        Devices.getDisplay().showMessage(String.format("Ваш баланс: %s", balance.toString()));
         return OperationLevel.Authorised;
     }
 

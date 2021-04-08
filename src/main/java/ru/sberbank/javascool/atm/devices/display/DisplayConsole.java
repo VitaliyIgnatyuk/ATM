@@ -1,4 +1,4 @@
-package ru.sberbank.javascool.display;
+package ru.sberbank.javascool.atm.devices.display;
 
 import static java.lang.System.out;
 

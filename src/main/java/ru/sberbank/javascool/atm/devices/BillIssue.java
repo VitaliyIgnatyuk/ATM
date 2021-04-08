@@ -1,4 +1,4 @@
-package ru.sberbank.javascool.atm;
+package ru.sberbank.javascool.atm.devices;
 
 /**
  * Устройство для выдачи наличных

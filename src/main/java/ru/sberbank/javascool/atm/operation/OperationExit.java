@@ -1,8 +1,8 @@
 package ru.sberbank.javascool.atm.operation;
 
 import lombok.Getter;
-import ru.sberbank.javascool.atm.Devices;
-import ru.sberbank.javascool.reader.Reader;
+import ru.sberbank.javascool.atm.devices.Devices;
+import ru.sberbank.javascool.atm.devices.reader.Reader;
 
 import java.util.Optional;
 

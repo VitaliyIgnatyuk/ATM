@@ -1,4 +1,6 @@
-package ru.sberbank.javascool.gateway;
+package ru.sberbank.javascool.atm.devices.gateway;
+
+import java.math.BigDecimal;
 
 /**
  * Шлюз для работы с банковским сервером
@@ -9,6 +11,6 @@ public interface Gateway {
      */
     boolean testLink();
 
-    double getBalance(String serialNumber);
+    BigDecimal getBalance(String serialNumber);
 
 }

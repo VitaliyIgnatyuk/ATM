@@ -1,6 +1,6 @@
 package ru.sberbank.javascool.atm;
 
-import ru.sberbank.javascool.reader.Reader;
+import ru.sberbank.javascool.atm.devices.reader.Reader;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package ru.sberbank.javascool.speaker;
+package ru.sberbank.javascool.atm.devices.speaker;
 
 /**
  * Динамик

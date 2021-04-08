@@ -1,18 +1,19 @@
-package ru.sberbank.javascool.atm;
+package ru.sberbank.javascool.atm.devices;
 
-import ru.sberbank.javascool.camera.Camera;
-import ru.sberbank.javascool.camera.CameraImpl;
-import ru.sberbank.javascool.display.Display;
-import ru.sberbank.javascool.display.DisplayConsole;
-import ru.sberbank.javascool.gateway.Gateway;
-import ru.sberbank.javascool.gateway.GatewayImpl;
-import ru.sberbank.javascool.keyboard.KeyBoard;
-import ru.sberbank.javascool.keyboard.KeyBoardConsole;
-import ru.sberbank.javascool.reader.Reader;
-import ru.sberbank.javascool.scaner.Scaner;
-import ru.sberbank.javascool.scaner.ScanerImpl;
-import ru.sberbank.javascool.speaker.Speaker;
-import ru.sberbank.javascool.speaker.SpeakerImpl;
+import ru.sberbank.javascool.atm.ATMException;
+import ru.sberbank.javascool.atm.devices.camera.Camera;
+import ru.sberbank.javascool.atm.devices.camera.CameraImpl;
+import ru.sberbank.javascool.atm.devices.display.Display;
+import ru.sberbank.javascool.atm.devices.display.DisplayConsole;
+import ru.sberbank.javascool.atm.devices.gateway.Gateway;
+import ru.sberbank.javascool.atm.devices.gateway.GatewayImpl;
+import ru.sberbank.javascool.atm.devices.keyboard.KeyBoard;
+import ru.sberbank.javascool.atm.devices.keyboard.KeyBoardConsole;
+import ru.sberbank.javascool.atm.devices.reader.Reader;
+import ru.sberbank.javascool.atm.devices.scaner.Scaner;
+import ru.sberbank.javascool.atm.devices.scaner.ScanerImpl;
+import ru.sberbank.javascool.atm.devices.speaker.Speaker;
+import ru.sberbank.javascool.atm.devices.speaker.SpeakerImpl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.sberbank.javascool.camera;
+package ru.sberbank.javascool.atm.devices.camera;
 
 /**
  * Фотокамера

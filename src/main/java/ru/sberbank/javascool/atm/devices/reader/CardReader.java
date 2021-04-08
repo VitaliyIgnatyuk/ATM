@@ -1,4 +1,4 @@
-package ru.sberbank.javascool.reader;
+package ru.sberbank.javascool.atm.devices.reader;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

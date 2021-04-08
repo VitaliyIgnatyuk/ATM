@@ -1,4 +1,4 @@
-package ru.sberbank.javascool.keyboard;
+package ru.sberbank.javascool.atm.devices.keyboard;
 
 /**
  * Клавиатура

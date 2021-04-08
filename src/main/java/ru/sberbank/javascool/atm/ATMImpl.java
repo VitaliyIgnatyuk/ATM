@@ -1,16 +1,16 @@
 package ru.sberbank.javascool.atm;
 
 import lombok.Getter;
+import ru.sberbank.javascool.atm.devices.Devices;
 import ru.sberbank.javascool.atm.operation.*;
 import ru.sberbank.javascool.card.TypeOfService;
-import ru.sberbank.javascool.reader.CardReader;
-import ru.sberbank.javascool.reader.Reader;
+import ru.sberbank.javascool.atm.devices.reader.CardReader;
+import ru.sberbank.javascool.atm.devices.reader.Reader;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BooleanSupplier;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class ATMImpl implements ATM {
@@ -30,12 +30,8 @@ public class ATMImpl implements ATM {
      */
     private void createReaders() {
         BooleanSupplier isWait = () -> operationLevel == OperationLevel.Wait;
-        Consumer<OperationLevel> readEvent = (level) -> {
-            operationLevel = level;
-            run();
-        };
-        Devices.getReaders().add(new CardReader(TypeOfService.Contact, isWait, readEvent));
-        Devices.getReaders().add(new CardReader(TypeOfService.Contactless, isWait, readEvent));
+        Devices.getReaders().add(new CardReader(TypeOfService.Contact, isWait, this::cardReadEvent));
+        Devices.getReaders().add(new CardReader(TypeOfService.Contactless, isWait, this::cardReadEvent));
     }
 
     /**
@@ -77,6 +73,11 @@ public class ATMImpl implements ATM {
             return Optional.of(list.get(num - 1));
         else
             return Optional.empty();
+    }
+
+    private void cardReadEvent(OperationLevel level){
+        operationLevel = level;
+        run();
     }
 
 }
