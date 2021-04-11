@@ -24,4 +24,10 @@ public interface Card {
      */
     Set<TypeOfService> getServiceSet();
 
+    /**
+     * Получение пин-кода банковской карты
+     * @return пин-код
+     */
+    String getPinCode();
+
 }

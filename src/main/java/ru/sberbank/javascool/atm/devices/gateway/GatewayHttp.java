@@ -3,7 +3,7 @@ package ru.sberbank.javascool.atm.devices.gateway;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class GatewayImpl implements Gateway {
+public class GatewayHttp implements Gateway {
 
     @Override
     public boolean testLink() {

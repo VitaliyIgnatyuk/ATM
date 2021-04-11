@@ -1,7 +1,7 @@
 package ru.sberbank.javascool;
 
 import ru.sberbank.javascool.atm.ATM;
-import ru.sberbank.javascool.atm.ATMImpl;
+import ru.sberbank.javascool.atm.ATMCard;
 import ru.sberbank.javascool.atm.devices.reader.Reader;
 import ru.sberbank.javascool.card.Card;
 
@@ -25,7 +25,7 @@ public class Program {
             return;
         out.println("Выбрана карта " + card.get().toString());
 
-        ATM atm = new ATMImpl();
+        ATM atm = new ATMCard();
         Optional<Reader> reader = select(atm.getReaders(), "картридер");
         if (!reader.isPresent())
             return;

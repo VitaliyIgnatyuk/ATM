@@ -1,8 +1,6 @@
 package ru.sberbank.javascool.atm.operation;
 
 import lombok.Getter;
-import ru.sberbank.javascool.atm.devices.Devices;
-import ru.sberbank.javascool.card.BankCard;
 
 @Getter
 public class OperationReadCard implements Operation {
@@ -11,10 +9,7 @@ public class OperationReadCard implements Operation {
 
     @Override
     public OperationLevel run() {
-        if (Devices.getActiveReader().getCard() instanceof BankCard)
-            return OperationLevel.NonAuthorised;
-        Devices.getDisplay().showError("Невозможно прочитать карту");
-        return OperationLevel.End;
+        return OperationLevel.NonAuthorised;
     }
 
     @Override

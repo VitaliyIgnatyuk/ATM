@@ -1,9 +1,8 @@
 package ru.sberbank.javascool.atm.operation;
 
 import lombok.Getter;
-import ru.sberbank.javascool.atm.ATMException;
 import ru.sberbank.javascool.atm.devices.Devices;
-import ru.sberbank.javascool.card.BankCard;
+import ru.sberbank.javascool.card.Card;
 
 /**
  * Операция проверки пинкода
@@ -21,9 +20,7 @@ public class OperationVerification implements Operation {
             String pinCode = Devices.getKeyBoard().getData();
             if (pinCode.equals("exit"))
                 return OperationLevel.Exit;
-            if (!(Devices.getActiveReader().getCard() instanceof BankCard))
-                throw new ATMException("Вставленная карта не является банковской");
-            BankCard bankCard = (BankCard)Devices.getActiveReader().getCard();
+            Card bankCard = Devices.getActiveReader().getCard();
             if (bankCard.getPinCode().equals(pinCode)) {
                 Devices.getDisplay().showMessage("Авторизация пройдена!");
                 return OperationLevel.Authorised;

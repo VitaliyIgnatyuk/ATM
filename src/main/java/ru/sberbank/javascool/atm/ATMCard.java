@@ -13,14 +13,14 @@ import java.util.Optional;
 import java.util.function.BooleanSupplier;
 import java.util.stream.Collectors;
 
-public class ATMImpl implements ATM {
+public class ATMCard implements ATM {
 
     private List<Operation> operations = new ArrayList<>();
     private OperationLevel operationLevel = OperationLevel.Wait;
     @Getter
     private List<Reader> readers = Devices.getReaders();
 
-    public ATMImpl() {
+    public ATMCard() {
         createReaders();
         createOperations();
     }
