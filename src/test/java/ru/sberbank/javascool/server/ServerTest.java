@@ -121,7 +121,7 @@ public class ServerTest {
         return Optional.of(card);
     }
 
-    private Account<Balance> createAccountMock() {
+    private Account<?> createAccountMock() {
         @SuppressWarnings("unchecked")
         Account<Balance> account = mock(Account.class);
         when(account.getAccount()).thenReturn(this.account);
