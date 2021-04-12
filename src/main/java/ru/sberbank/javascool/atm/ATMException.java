@@ -1,6 +1,6 @@
 package ru.sberbank.javascool.atm;
 
-public class ATMException extends RuntimeException{
+public class ATMException extends RuntimeException {
 
     public ATMException() {
         super();
