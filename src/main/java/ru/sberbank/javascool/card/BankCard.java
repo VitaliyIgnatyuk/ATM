@@ -3,6 +3,7 @@ package ru.sberbank.javascool.card;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 /**
@@ -31,6 +32,10 @@ public class BankCard implements Card {
      */
     private String pinCode;
 
+    /**
+     * Дата истечения срока действия
+     */
+    private LocalDate expiredDate;
 
     @Override
     public String toString() {

@@ -1,16 +1,12 @@
 package ru.sberbank.javascool.card;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 /**
  * Карточка, пластиковая или электронная
  */
 public interface Card {
-
-    /**
-     * @return Название карты
-     */
-    String getName();
 
     /**
      * Возвращает серийный номер карты
@@ -29,5 +25,10 @@ public interface Card {
      * @return пин-код
      */
     String getPinCode();
+
+    /**
+     * Дата истечения срока действия
+     */
+    LocalDate getExpiredDate();
 
 }
