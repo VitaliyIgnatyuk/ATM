@@ -137,7 +137,7 @@ public class ServerTest {
     }
 
     private Balance createBalanceMock() {
-        Balance balance = mock(BalanceDefault.class);
+        Balance balance = mock(Balance.class);
         when(balance.getCurrency()).thenReturn(currency);
         when(balance.getSumma()).thenReturn(summa);
         return balance;
