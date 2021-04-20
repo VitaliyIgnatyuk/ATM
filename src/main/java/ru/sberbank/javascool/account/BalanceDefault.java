@@ -9,9 +9,9 @@ public class BalanceDefault extends Balance {
     }
 
     @Override
-    public void setSumma(BigDecimal summa) {
-        if (summa.compareTo(BigDecimal.ZERO) < 0)
+    protected void checkNewAmount(BigDecimal amount) throws AccountException {
+        if (amount.compareTo(BigDecimal.ZERO) < 0)
             throw new AccountException("баланс не может быть меньше 0");
-        super.setSumma(summa);
     }
+
 }

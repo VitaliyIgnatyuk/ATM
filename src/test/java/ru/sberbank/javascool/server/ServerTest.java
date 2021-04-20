@@ -6,9 +6,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.mockito.Matchers;
 import ru.sberbank.javascool.account.Account;
 import ru.sberbank.javascool.account.Balance;
-import ru.sberbank.javascool.account.BalanceDefault;
 import ru.sberbank.javascool.account.Currency;
 import ru.sberbank.javascool.card.BankCard;
 import ru.sberbank.javascool.card.Card;
@@ -16,11 +16,8 @@ import ru.sberbank.javascool.client.Client;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -29,21 +26,19 @@ public class ServerTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-    private String account = "40817810099910004312";
-    private String validSerialNumber = "5555555555554444";
-    private String expiredSerialNumber = "3333333333334444";
-    private String invalidSerialNumber = "1111111111112222";
-    private String validPinCode = "000";
-    private String invalidPinCode = "1111";
-    private BigDecimal summa = new BigDecimal("12345678.01");
-    private Currency currency = Currency.RUB;
+    private final String account = "40817810099910004312";
+    private final String validSerialNumber = "5555555555554444";
+    private final String expiredSerialNumber = "3333333333334444";
+    private final String validPinCode = "000";
+    private final BigDecimal summa = new BigDecimal("12345678.01");
+    private final Currency currency = Currency.RUB;
 
     private Server server;
 
     @Before
     public void setUp() {
         server = new Server();
-        server.getClients().add(createClientMock());
+        server.addClient(createClientMock());
     }
 
     @SneakyThrows(ServerException.class)
@@ -52,7 +47,7 @@ public class ServerTest {
         AccBalance accBalance = server.getBalance(validSerialNumber, validPinCode);
         Assert.assertEquals(accBalance.getAccount(), account);
         Assert.assertEquals(accBalance.getBalance().getCurrency(), currency);
-        Assert.assertSame(accBalance.getBalance().getSumma().compareTo(summa),0);
+        Assert.assertSame(accBalance.getBalance().getAmount().compareTo(summa),0);
     }
 
     @SneakyThrows(ServerException.class)
@@ -69,7 +64,7 @@ public class ServerTest {
     public void findClient() {
         thrown.expect(ServerException.class);
         thrown.expectMessage("отсутсвуют данные о карте");
-        server.getBalance(invalidSerialNumber, invalidPinCode);
+        server.getBalance("1111111111112222", validPinCode);
         thrown = ExpectedException.none();
     }
 
@@ -102,9 +97,10 @@ public class ServerTest {
 
     private Client createClientMock() {
         Client client = mock(Client.class);
-        List<Account<?>> accounts = new ArrayList<>();
-        when(client.getAccounts()).thenReturn(accounts);
-        accounts.add(createAccountMock());
+        Optional<Account<?>> account = createAccountMock();
+        when(client.findAccount(Matchers.any())).thenReturn(Optional.empty());
+        when(client.findAccount(Matchers.eq(validSerialNumber))).thenReturn(account);
+        when(client.findAccount(Matchers.eq(expiredSerialNumber))).thenReturn(account);
         return client;
     }
 
@@ -121,7 +117,7 @@ public class ServerTest {
         return Optional.of(card);
     }
 
-    private Account<?> createAccountMock() {
+    private Optional<Account<?>> createAccountMock() {
         @SuppressWarnings("unchecked")
         Account<Balance> account = mock(Account.class);
         when(account.getAccount()).thenReturn(this.account);
@@ -132,14 +128,13 @@ public class ServerTest {
         when(account.findCard(validSerialNumber)).thenReturn(card);
         card = createExpiredCardMock();
         when(account.findCard(expiredSerialNumber)).thenReturn(card);
-        when(account.findCard(invalidSerialNumber)).thenReturn(Optional.empty());
-        return account;
+        return Optional.of(account);
     }
 
     private Balance createBalanceMock() {
         Balance balance = mock(Balance.class);
         when(balance.getCurrency()).thenReturn(currency);
-        when(balance.getSumma()).thenReturn(summa);
+        when(balance.getAmount()).thenReturn(summa);
         return balance;
     }
 

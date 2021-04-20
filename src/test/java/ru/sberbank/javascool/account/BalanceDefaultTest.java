@@ -2,8 +2,8 @@ package ru.sberbank.javascool.account;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -27,17 +27,18 @@ public class BalanceDefaultTest {
 
     @Test
     public void getSumma() {
-        Assert.assertEquals(balance.getSumma().compareTo(new BigDecimal("12.34")), 0);
-        Assert.assertNotEquals(balance.getSumma().compareTo(new BigDecimal("12.35")), 0);
+        Assert.assertEquals(balance.getAmount().compareTo(new BigDecimal("12.34")), 0);
+        Assert.assertNotEquals(balance.getAmount().compareTo(new BigDecimal("12.35")), 0);
     }
 
+    @SneakyThrows(AccountException.class)
     @Test
     public void setSumma() {
-        balance.setSumma(new BigDecimal("67.89"));
-        Assert.assertEquals(balance.getSumma().compareTo(new BigDecimal("67.89")), 0);
+        balance.setAmount(new BigDecimal("67.89"));
+        Assert.assertEquals(balance.getAmount().compareTo(new BigDecimal("67.89")), 0);
         thrown.expect(AccountException.class);
         thrown.expectMessage("баланс не может быть меньше 0");
-        balance.setSumma(new BigDecimal("-1.01"));
+        balance.setAmount(new BigDecimal("-1.01"));
         thrown = ExpectedException.none();
     }
 }

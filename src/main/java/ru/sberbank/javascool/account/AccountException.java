@@ -1,6 +1,6 @@
 package ru.sberbank.javascool.account;
 
-public class AccountException extends RuntimeException {
+public class AccountException extends Exception {
 
     public AccountException() {
         super();

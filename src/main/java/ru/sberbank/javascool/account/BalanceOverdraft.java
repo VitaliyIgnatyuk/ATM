@@ -12,10 +12,9 @@ public class BalanceOverdraft extends Balance {
     }
 
     @Override
-    public void setSumma(BigDecimal summa) {
-        if (summa.compareTo(limit) < 0)
+    protected void checkNewAmount(BigDecimal amount) throws AccountException {
+        if (amount.compareTo(limit) < 0)
             throw new AccountException("превышение лимита овердрафта");
-        super.setSumma(summa);
     }
 
 }

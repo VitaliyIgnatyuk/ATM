@@ -20,11 +20,11 @@ public class Purse {
     private List<Card> cards = new ArrayList<>();
 
     public Purse() {
-        AddBankCard("Банковская карта СБЕРБАНК", "3333333", "0000",
+        addBankCard("Банковская карта СБЕРБАНК", "3333333", "0000",
                 convert(TypeOfService.Contact, TypeOfService.Contactless), LocalDate.of(2022, 1, 15));
-        AddBankCard("Банковская карта АЛЬФАБАНК", "4444444", "0000",
+        addBankCard("Банковская карта АЛЬФАБАНК", "4444444", "0000",
                 convert(TypeOfService.Contact), LocalDate.of(2021, 9, 3));
-        AddBankCard("Электронная банковская карта ТИНЬКОФФ", "5555555", "0000",
+        addBankCard("Электронная банковская карта ТИНЬКОФФ", "5555555", "0000",
                 convert(TypeOfService.Contactless), LocalDate.of(2020, 11, 7));
     }
 
@@ -32,7 +32,7 @@ public class Purse {
         return new HashSet<>(Arrays.asList(args));
     }
 
-    private void AddBankCard(String name, String serialNumber, String pinCode, Set<TypeOfService> typeOfServices, LocalDate expiredDate) {
+    private void addBankCard(String name, String serialNumber, String pinCode, Set<TypeOfService> typeOfServices, LocalDate expiredDate) {
         cards.add(new BankCard(name, serialNumber, typeOfServices, pinCode, expiredDate));
     }
 

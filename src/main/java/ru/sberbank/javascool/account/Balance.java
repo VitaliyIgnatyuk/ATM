@@ -2,7 +2,6 @@ package ru.sberbank.javascool.account;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -12,7 +11,13 @@ public abstract class Balance {
 
     private final Currency currency;
 
-    @Setter
-    private BigDecimal summa;
+    private BigDecimal amount;
+
+    public void setAmount(BigDecimal amount) throws AccountException {
+        checkNewAmount(amount);
+        this.amount = amount;
+    }
+
+    protected void checkNewAmount(BigDecimal amount) throws AccountException {}
 
 }

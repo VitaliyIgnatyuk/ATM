@@ -4,7 +4,6 @@ import ru.sberbank.javascool.atm.ATM;
 import ru.sberbank.javascool.atm.ATMCard;
 import ru.sberbank.javascool.atm.devices.reader.Reader;
 import ru.sberbank.javascool.card.Card;
-import ru.sberbank.javascool.server.Server;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +19,6 @@ public class Program {
     }
 
     private static void checkBalance() {
-        Server server = new Server();
-        out.println(server);
         Optional<Card> card = select(new Purse().getCards(), "карту");
         //card.orElseThrow()
         if (!card.isPresent())
