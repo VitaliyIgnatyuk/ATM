@@ -12,11 +12,11 @@ public class ExampleJDBC {
     }
 
     public Optional<String> selectColumn() throws SQLException {
-        return select("select name from machine", rs -> rs.getString("NAME"));
+        return select("select name from machine", this::getName);
     }
 
     public Optional<String> selectTwoColumns() throws SQLException {
-        return select("select name, age from animal", rs -> String.format("Name: %s, age: %d", rs.getString("NAME"), rs.getInt("age")));
+        return select("select name, age from animal", rs -> String.format("Name: %s, age: %d", getName(rs), rs.getInt("age")));
     }
 
     private Optional<Connection> getConnection() throws SQLException {
@@ -31,6 +31,10 @@ public class ExampleJDBC {
                 }
             }
         }
+    }
+
+    private String getName(ResultSet resultSet) throws SQLException {
+        return resultSet.getString("NAME");
     }
 
 }
