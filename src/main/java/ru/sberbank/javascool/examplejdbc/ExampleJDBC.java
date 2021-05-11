@@ -24,8 +24,12 @@ public class ExampleJDBC {
     }
 
     private Optional<String> select(String sql, FunctionSQLException<ResultSet, String> func) throws SQLException {
-        try (ResultSet resultSet = getConnection().orElseThrow(JDBCConnectionException::new).createStatement().executeQuery(sql)) {
-            return resultSet.next() ? Optional.of(func.apply(resultSet)) : Optional.empty();
+        try (Connection connection = getConnection().orElseThrow(JDBCConnectionException::new)) {
+            try (Statement statement = connection.createStatement()) {
+                try (ResultSet resultSet = statement.executeQuery(sql)) {
+                    return resultSet.next() ? Optional.of(func.apply(resultSet)) : Optional.empty();
+                }
+            }
         }
     }
 
