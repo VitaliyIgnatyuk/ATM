@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Fatal error</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>
+    <center>Произошла ошибка</center>
+</h1>
+
+<form th:action="@{/index}"
+      th:object="${ErrorInfo}" method="GET">
+    <center><h2 th:utext="${ErrorInfo.errorMessage}"></h2></center>
+    <br/>
+    <br/>
+    <br/>
+    <center><input type="submit" value="На главную страницу"/></center>
+    <br/><br/>
+</form>
+
+</body>
+</html>

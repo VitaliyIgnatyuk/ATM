@@ -1,0 +1,24 @@
+<configuration scan = "true" scanPeriod = "30 seconds">
+    <appender name = "STDOUT" class = "ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+<!--            http://logback.qos.ch/manual/configuration.html-->
+<!--            encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class = "ch.qos.logback.core.FileAppender">
+        <file>./Client/target/logging/logging.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="chapters.configuration" level = "INFO" />
+
+    <root level="INFO">
+        <appender-ref ref = "FILE" />
+        <appender-ref ref = "STDOUT" />
+    </root>
+</configuration>
