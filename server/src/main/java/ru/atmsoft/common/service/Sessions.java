@@ -2,7 +2,7 @@ package ru.atmsoft.common.service;
 
 import ru.atmsoft.common.dto.LoginDTO;
 import ru.atmsoft.common.dto.SessionDTO;
-import ru.atmsoft.common.sessions.Session;
+import ru.atmsoft.common.Session;
 
 import java.util.function.UnaryOperator;
 

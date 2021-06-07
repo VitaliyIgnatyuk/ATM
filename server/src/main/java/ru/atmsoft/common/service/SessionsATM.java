@@ -11,8 +11,8 @@ import ru.atmsoft.common.exception.LockedCardException;
 import ru.atmsoft.common.exception.NonValidSessionException;
 import ru.atmsoft.common.exception.NotValidCardException;
 import ru.atmsoft.common.repository.CardRepository;
-import ru.atmsoft.common.sessions.Session;
-import ru.atmsoft.common.sessions.SessionATM;
+import ru.atmsoft.common.Session;
+import ru.atmsoft.common.SessionATM;
 
 import java.time.LocalDate;
 import java.util.HashMap;

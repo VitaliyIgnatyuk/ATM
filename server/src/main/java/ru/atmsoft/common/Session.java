@@ -1,4 +1,4 @@
-package ru.atmsoft.common.sessions;
+package ru.atmsoft.common;
 
 import java.util.UUID;
 
