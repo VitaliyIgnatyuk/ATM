@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Input Card</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>
+    <center>Введите карту</center>
+</h1>
+
+<form th:action="@{/login}"
+      th:object="${loginForm}" method="POST">
+    <center>Введите номер карты:</center>
+    <center><input type="text" th:field="*{cardNum}"/></center>
+    <br/>
+    <br/>
+    <center>Введите пин-код:</center>
+    <center><input type="text" th:field="*{pin}"/></center>
+    <br/>
+    <center>
+        <div th:if="${errorMessage}" th:utext="${errorMessage}"
+             style="color:red;font-style:italic;">
+        </div>
+    </center>
+    <br/>
+    <br/>
+    <center><input type="submit" value="ВХОД"/></center>
+</form>
+
+</body>
+</html>

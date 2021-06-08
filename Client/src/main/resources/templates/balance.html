@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>start</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>
+    <center>Баланс вашей карты</center>
+</h1>
+
+<form th:action="@{/operations}" th:object="${balanceDTO}" method="GET">
+    <div>
+        <center>
+            <td th:utext="${balanceDTO.amount}"></td>
+            <td th:utext="${balanceDTO.currency.name}"></td>
+            <br/><br/>
+            <input type="submit" value="К операциям"/>
+        </center>
+    </div>
+</form>
+<form th:action="@{/operations}" th:object="${balanceDTO}" method="POST">
+    <div>
+        <center>
+            <br/><br/>
+            <input type="submit" formaction="/exit" value="Выход">
+        </center>
+    </div>
+</form>
+</body>
+</html>

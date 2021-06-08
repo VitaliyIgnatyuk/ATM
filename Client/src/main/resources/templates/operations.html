@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Operation list</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>
+    <center>Добро пожаловать</td></center>
+</h1>
+<h1>
+    <center>
+        <td th:utext="${ClientName}"></td>
+    </center>
+</h1>
+<br/><br/>
+<h2>
+    <center>Выберете операцию</center>
+</h2>
+<form th:action="@{/operations}"
+      th:object="${operations}" method="POST">
+    <div>
+        <center>
+            <table border="1">
+                <tr>
+                    <th>Операция</th>
+                </tr>
+                <tr th:each="operation : ${operations}">
+                    <td><input type="submit" formaction="action" value="value" th:formaction="${operation.link}"
+                               th:value="${operation.caption}"></td>
+                </tr>
+            </table>
+            <br/><br/>
+            <input type="submit" formaction="/exit" value="Выход">
+        </center>
+    </div>
+</form>
+
+</body>
+</html>
