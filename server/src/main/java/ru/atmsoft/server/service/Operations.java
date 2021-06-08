@@ -1,4 +1,4 @@
-package ru.atmsoft.common.service;
+package ru.atmsoft.server.service;
 
 import ru.atmsoft.common.dto.BalanceDTO;
 

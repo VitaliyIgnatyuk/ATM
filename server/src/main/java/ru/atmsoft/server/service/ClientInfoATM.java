@@ -1,10 +1,10 @@
-package ru.atmsoft.common.service;
+package ru.atmsoft.server.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.atmsoft.common.exception.NotFoundException;
-import ru.atmsoft.common.repository.CardRepository;
+import ru.atmsoft.server.exception.NotFoundException;
+import ru.atmsoft.server.repository.CardRepository;
 
 import java.util.UUID;
 

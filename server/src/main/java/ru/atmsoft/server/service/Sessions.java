@@ -1,8 +1,8 @@
-package ru.atmsoft.common.service;
+package ru.atmsoft.server.service;
 
 import ru.atmsoft.common.dto.LoginDTO;
 import ru.atmsoft.common.dto.SessionDTO;
-import ru.atmsoft.common.Session;
+import ru.atmsoft.server.Session;
 
 import java.util.function.UnaryOperator;
 

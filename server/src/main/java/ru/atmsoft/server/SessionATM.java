@@ -1,4 +1,4 @@
-package ru.atmsoft.common;
+package ru.atmsoft.server;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

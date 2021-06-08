@@ -1,4 +1,4 @@
-package ru.atmsoft.common.service;
+package ru.atmsoft.server.service;
 
 public interface ClientInfo {
 

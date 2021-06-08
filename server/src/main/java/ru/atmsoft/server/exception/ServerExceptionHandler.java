@@ -1,4 +1,4 @@
-package ru.atmsoft.common.exception;
+package ru.atmsoft.server.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;

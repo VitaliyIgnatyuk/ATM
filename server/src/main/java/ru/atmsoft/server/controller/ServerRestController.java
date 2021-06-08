@@ -1,4 +1,4 @@
-package ru.atmsoft.common.controller;
+package ru.atmsoft.server.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,9 +9,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ru.atmsoft.common.dto.BalanceDTO;
 import ru.atmsoft.common.dto.LoginDTO;
 import ru.atmsoft.common.dto.SessionDTO;
-import ru.atmsoft.common.service.ClientInfo;
-import ru.atmsoft.common.service.Operations;
-import ru.atmsoft.common.service.Sessions;
+import ru.atmsoft.server.service.ClientInfo;
+import ru.atmsoft.server.service.Operations;
+import ru.atmsoft.server.service.Sessions;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;

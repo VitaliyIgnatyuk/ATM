@@ -1,4 +1,4 @@
-package ru.atmsoft.common.exception;
+package ru.atmsoft.server.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

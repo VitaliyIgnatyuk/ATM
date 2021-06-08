@@ -1,4 +1,4 @@
-package ru.atmsoft.common.entity;
+package ru.atmsoft.server.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

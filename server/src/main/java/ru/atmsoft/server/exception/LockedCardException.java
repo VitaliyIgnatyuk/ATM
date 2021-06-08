@@ -1,4 +1,6 @@
-package ru.atmsoft.common.exception;
+package ru.atmsoft.server.exception;
+
+import ru.atmsoft.common.exception.CommonException;
 
 public class LockedCardException extends CommonException {
 

@@ -1,18 +1,18 @@
-package ru.atmsoft.common.service;
+package ru.atmsoft.server.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.Synchronized;
 import org.springframework.stereotype.Service;
 import ru.atmsoft.common.dto.LoginDTO;
 import ru.atmsoft.common.dto.SessionDTO;
-import ru.atmsoft.common.entity.Card;
-import ru.atmsoft.common.exception.CardIsNotReadableException;
-import ru.atmsoft.common.exception.LockedCardException;
-import ru.atmsoft.common.exception.NonValidSessionException;
-import ru.atmsoft.common.exception.NotValidCardException;
-import ru.atmsoft.common.repository.CardRepository;
-import ru.atmsoft.common.Session;
-import ru.atmsoft.common.SessionATM;
+import ru.atmsoft.server.entity.Card;
+import ru.atmsoft.server.exception.CardIsNotReadableException;
+import ru.atmsoft.server.exception.LockedCardException;
+import ru.atmsoft.server.exception.NonValidSessionException;
+import ru.atmsoft.server.exception.NotValidCardException;
+import ru.atmsoft.server.repository.CardRepository;
+import ru.atmsoft.server.Session;
+import ru.atmsoft.server.SessionATM;
 
 import java.time.LocalDate;
 import java.util.HashMap;

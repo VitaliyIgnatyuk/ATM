@@ -1,4 +1,4 @@
-package ru.atmsoft.common;
+package ru.atmsoft.server;
 
 import java.util.UUID;
 
